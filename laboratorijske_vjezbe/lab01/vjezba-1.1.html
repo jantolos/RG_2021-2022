@@ -1,0 +1,55 @@
+<html>
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <title>Vježbe 1</title>
+     <link rel="stylesheet" type="text/css" href="hip-rg.css">
+  </head>
+
+<body>
+<div class="tekst">
+<h1>Vježbe 1.1.<h1>
+<h3 style="color:gray">Koordinatni sustavi i transformacije kod iscrtavanja</h3>
+</div>
+
+<div class="tekst">
+Primjer 1.1. Povlačenje linija u HTML5 canvasu:
+&nbsp; <a href="RG-primjer1-1-linije.html" target="_blank">RG-primjer1-1-linije</a>
+</div>
+
+<div class="tekst">
+1.1. <b>Crtanje u zaslonskim koordinatama:</b> &nbsp; 
+Nacrtajte ekvidistantne horizontalne i
+vertikalne linije s međusobnim razmakom od 40 točaka.
+Eksperimentirajte s veličinom canvasa.
+</div>
+
+<div class="tekst">
+    <p><b>Ad. 1.1.</b></p>
+    <script>
+        window.onload = crtaj;
+        function crtaj(){
+            var pl = document.getElementById("platno1");
+            var w = pl.width;
+		        var h = pl.height;
+		        var g = pl.getContext("2d");
+            var korakH = 40;
+            var korakW = 40;
+            
+
+            for (let i = 0; i <= w; i+=korakH) {
+                g.moveTo(i,0);
+                g.lineTo(i,h);
+                g.stroke();
+            }
+
+            for (let i = 0; i <= h; i+=korakW) {
+                g.moveTo(0,i);
+                g.lineTo(w,i);
+                g.stroke();
+            }
+        }
+    </script>
+    <canvas id="platno1" width="400" height="400" style="border:5px solid black"> Vaš preglednik ne podržava HTML5 canvas. </canvas>
+</div>
+</body>
+<html>

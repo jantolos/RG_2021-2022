@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaća 1 - Zadatak 3</title>
+    <link rel="stylesheet" type="text/css" href="hip-rg.css">
+</head>
+  <div class="nav">
+    <nav>
+        <ul>
+            <li><a href="/Zadatak_1.html">Zadatak 1</a></li>
+            <li><a href="/Zadatak_2.html">Zadatak 2</a></li>
+            <li><a href="/Zadatak_3.html">Zadatak 3</a></li>
+            <li><a href="/Zadatak_4.html">Zadatak 4</a></li>
+        </ul>
+    </nav>
+  </div>
+<body>
+<div class="tekst">
+<h1>Zadatak 2.<h1>
+<h3 style="color:gray">Student: Jerry John Antolos <br> JMBAG: 00161200073</h3>
+</div>
+
+<div class="tekst">
+<p>
+    Nacrtajte elipsu s poluosima <code>a = 4</code> i <code>b = 2</code>. Koordinatni sustav zajedno s oznakama na koordinatnim osima
+    postavite kako je prikazano na slici. Parametarske jednadžbe elipse s poluosima a i b su <code>x = acos t</code>, <code>y = bsin t</code> pri 
+    čemu je <code>t ∈[0,2π]</code>.
+</p>
+</div>
+
+<div class="tekst">
+    <p><b>Ad. 2.</b></p>
+    <canvas id="platno1" width="500" height="500" style="border:5px solid black; background-color:#FFFFE0;"> Vaš preglednik ne podržava HTML5 canvas. </canvas>
+    <script type="text/javascript" src="GKS.js"></script>
+    <script>
+        var koord = new GKS("platno1", -5, 5, -5, 5);
+            window.onload = crtaj;
+            function crtaj(){
+                koord.crtajKoordinatni();
+
+                var graf = new GKS("platno1", -5, 5, -5, 5);
+
+                var a = 4;
+                var b = 2;
+
+                for (let i = 0; i <= 2*Math.PI; i+=0.05) {
+                    var t = i;
+                    var x = a*Math.cos(t)
+                    var y = b*Math.sin(t);
+
+                    if (i == 0) {
+                        graf.postaviNa(x, y);
+                    }
+                    else{
+                        graf.linijaDo(x, y);
+                        graf.koristiBoju('red');
+                        graf.povuciLiniju();
+                    }
+                }
+            }
+    </script>
+</div>
+</body>
+<html>

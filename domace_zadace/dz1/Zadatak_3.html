@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadaća 1 - Zadatak 3</title>
+    <link rel="stylesheet" type="text/css" href="hip-rg.css">
+</head>
+  <div class="nav">
+    <nav>
+        <ul>
+            <li><a href="/Zadatak_1.html">Zadatak 1</a></li>
+            <li><a href="/Zadatak_2.html">Zadatak 2</a></li>
+            <li><a href="/Zadatak_3.html">Zadatak 3</a></li>
+            <li><a href="/Zadatak_4.html">Zadatak 4</a></li>
+        </ul>
+    </nav>
+  </div>
+<body>
+<div class="tekst">
+<h1>Zadatak 3.<h1>
+<h3 style="color:gray">Student: Jerry John Antolos <br> JMBAG: 00161200073</h3>
+</div>
+
+<div class="tekst">
+<p>
+    Nacrtajte leptira koji je zadan parametarskim jednadžbama <br>
+    <code>x = (e<sup>cost</sup>-2cos4t+sin<sup>5</sup>t&frasl;12)sint</code> <br> 
+    <code>y = (e<sup>cost</sup>-2cos4t+sin<sup>5</sup>t&frasl;12)cost</code> <br>
+    Parametar <code>t</code> ograničite na segment <code>[0,12π]</code>. Po želji možete dodati slider pomoću kojeg će se
+    interaktivno mijenjati gornja i donja granica segmenta na kojemu se crta leptir.
+</p>
+</div>
+
+<div class="tekst">
+    <p><b>Ad. 3.</b></p>
+    <canvas id="platno1" width="500" height="500" style="border:5px solid black;  background-color:#FFFFE0;"> Vaš preglednik ne podržava HTML5 canvas. </canvas>
+    <script type="text/javascript" src="GKS.js"></script>
+    <script>
+            window.onload = crtaj;
+            function crtaj(){
+                var graf = new GKS("platno1", -5, 5, -5, 5);
+
+                for (let i = 0; i <= 12*Math.PI; i+=0.05) {
+                    var t = i;
+                    var x = (Math.pow(Math.E,Math.cos(t))-2*Math.cos(4*t)+Math.pow(Math.sin(t/12),5))*Math.sin(t);
+                    var y = (Math.pow(Math.E,Math.cos(t))-2*Math.cos(4*t)+Math.pow(Math.sin(t/12),5))*Math.cos(t);
+                    
+                    if (i == 0) {
+                        graf.postaviNa(x, y);
+                    }
+                    else{
+                        graf.linijaDo(x, y);
+                        graf.koristiBoju('red');
+                        graf.povuciLiniju();
+                    }
+                }
+            }
+    </script>
+</div>
+</body>
+<html>

@@ -1,0 +1,71 @@
+<html>
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <title>Vježbe 1</title>
+     <link rel="stylesheet" type="text/css" href="hip-rg.css">
+  </head>
+
+<body>
+<div class="tekst">
+<h1>Vježba 1.2.<h1>
+<h3 style="color:gray">Koordinatni sustavi i transformacije kod iscrtavanja</h3>
+</div>
+
+<div class="tekst">
+1.2. <b>Crtanje u prirodnim koordinatama (1):</b> &nbsp;
+Nacrtajte parabolu
+y(x)=0.5*x^2-3 u koordinatnom sustavu s ishodištem
+u središtu canvasa, a raspon vrijednosti za koordinate
+x i y je od -5 do 5. Koordinatne osi neka budu crne,
+a parabola crvene boje.
+</div>
+    <div class="tekst">
+        <p><b>Ad. 1.2.</b></p>
+        <script async>
+            window.onload = crtaj;
+            function crtaj(){
+                var pl = document.getElementById("platno1");
+                var w = pl.width;
+                var h = pl.height;
+                var g = pl.getContext("2d");
+
+                var x_max = 5;
+                var x_min = -5;
+                var y_max = 5;
+                var y_min = -5;
+                
+                g.beginPath();
+                g.moveTo(250,0);
+                g.lineTo(250,500);
+                g.moveTo(0,250);
+                g.lineTo(500,250);
+                g.strokeStyle = 'black';
+                g.stroke();
+
+                for (let i = x_min; i <= x_max; i+=0.01) {
+                    var x = i;
+                    var y = 0.5*Math.pow(x,2)-3;
+
+                    var s_x = (w-0)/(x_max - x_min);
+                    var s_y = (0-h)/(y_max - y_min);
+                    var p_x = -(s_x*x_min);
+                    var p_y = -(s_y*y_max);
+                    var x_crtano = (s_x*x)+p_x;
+                    var y_crtano = (s_y*y)+p_y;
+
+                    if (i == x_min) {
+                        g.beginPath();
+                        g.moveTo(x_crtano,y_crtano)
+                    }
+                    else{
+                        g.lineTo(x_crtano,y_crtano);
+                        g.strokeStyle = 'red';
+                        g.stroke();
+                    }
+                }
+            }
+        </script>
+        <canvas id="platno1" width="500" height="500" style="border:5px solid black"> Vaš preglednik ne podržava HTML5 canvas. </canvas>
+    </div>
+</body>
+</html>
