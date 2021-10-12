@@ -2,7 +2,7 @@
     This class is used for the purpose of converting Global coordinates 
     (Cartesian coordinate system) into Screen coordinates.
 
-    Copyright (C) 2021. Jerry John Antolos, B.Sc.IT
+    Copyright (C) 2021. Jerry J. Antolos, B.Sc.IT
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
